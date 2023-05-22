@@ -1,0 +1,54 @@
+body {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-container {
+  background-color: grey;
+  width: 400px;
+  height: 500px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.number-input {
+  background-color: ghostwhite;
+  font-size: 32px;
+  text-align: end;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 40px;
+  color: black;
+}
+
+.clear,
+.delete {
+  width: 49.3%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+
+.clear {
+  background-color: red;
+}
+
+.delete {
+  background-color: yellow;
+}
+
+.number-operator {
+  height: 350px;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.number-operator button {
+  flex: 1 0 21%;
+}
