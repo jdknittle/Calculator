@@ -3,9 +3,7 @@ let num1 = '';
 let num2 = '';
 let operator = '';
 
-const add = (num1, num2) => {
-  num1 + num2;
-};
+const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => num1 / num2;
@@ -82,6 +80,9 @@ const two = dTwo.addEventListener('click', function () {
 const three = dThree.addEventListener('click', function () {
   addDisplayNumber('3');
 });
+const zero = dZero.addEventListener('click', function () {
+  addDisplayNumber('0');
+});
 const fMultiply = dMultiply.addEventListener('click', function () {
   operator = '*';
   input.innerHTML = `${num1} ${operator}`;
@@ -100,12 +101,16 @@ const fAddition = dAddition.addEventListener('click', function () {
 });
 
 const fEqual = dEqual.addEventListener('click', function () {
-  num1 = parseInt(num1);
-  num2 = parseInt(num2);
-  const result = operate(num1, num2, operator);
+  if (num2 === '') {
+    return false;
+  } else {
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+    const result = operate(num1, num2, operator);
 
-  num1 = result;
-  num2 = '';
-  operator = '';
-  input.innerHTML = `${num1}`;
+    num1 = result;
+    num2 = '';
+    operator = '';
+    input.innerHTML = `${num1}`;
+  }
 });

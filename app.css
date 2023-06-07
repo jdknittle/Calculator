@@ -21,8 +21,9 @@ body {
   text-align: end;
   border: 1px solid grey;
   border-radius: 5px;
-  height: 50px;
+  height: 40px;
   color: black;
+  overflow: hidden;
 }
 
 .dClear {
