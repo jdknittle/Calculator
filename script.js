@@ -1,96 +1,111 @@
-"use strict";
-let num1 = "";
-let num2 = "";
-let operator = "";
+'use strict';
+let num1 = '';
+let num2 = '';
+let operator = '';
 
-const add = (num1, num2) => num1 + num2;
+const add = (num1, num2) => {
+  num1 + num2;
+};
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => num1 / num2;
 
 const operate = (num1, num2, operator) => {
-  if (operator === "+") return add(num1, num2);
-  if (operator === "-") return subtract(num1, num2);
-  if (operator === "*") return multiply(num1, num2);
-  if (operator === "/") return divide(num1, num2);
+  if (operator === '+') return add(num1, num2);
+  if (operator === '-') return subtract(num1, num2);
+  if (operator === '*') return multiply(num1, num2);
+  if (operator === '/') return divide(num1, num2);
 };
 
-const input = document.querySelector(".input");
+const input = document.querySelector('.input');
 input.innerHTML = `${num1} ${operator} ${num2}`;
-const dClear = document.querySelector(".dClear");
-const clear = dClear.addEventListener("click", function () {
-  num1 = "";
-  num2 = "";
-  operator = "";
+const dClear = document.querySelector('.dClear');
+const dSeven = document.querySelector('.dSeven');
+const dEight = document.querySelector('.dEight');
+const dNine = document.querySelector('.dNine');
+const dFour = document.querySelector('.dFour');
+const dFive = document.querySelector('.dFive');
+const dSix = document.querySelector('.dSix');
+const dOne = document.querySelector('.dOne');
+const dTwo = document.querySelector('.dTwo');
+const dThree = document.querySelector('.dThree');
+const dMultiply = document.querySelector('.dMultiply');
+const dDivide = document.querySelector('.dDivide');
+const dSubtract = document.querySelector('.dSubtract');
+const dAddition = document.querySelector('.dAddition');
+const dEqual = document.querySelector('.dEqual');
+const dDecimal = document.querySelector('.dDecimal');
+const dZero = document.querySelector('.dZero');
+
+const clear = dClear.addEventListener('click', function () {
+  num1 = '';
+  num2 = '';
+  operator = '';
   input.innerHTML = `${num1} ${operator} ${num2}`;
 });
 
-const dSeven = document.querySelector(".dSeven");
-const seven = dSeven.addEventListener("click", function () {
-  num1 += "7";
-  input.innerHTML = `${num1}`;
+const addDisplayNumber = function (num) {
+  if (operator === '') {
+    num1 += num;
+    input.innerHTML = `${num1}`;
+  } else if (operator !== '') {
+    num2 += num;
+    input.innerHTML = `${num1} ${operator} ${num2}`;
+  }
+};
+
+const seven = dSeven.addEventListener('click', function () {
+  addDisplayNumber('7');
 });
-const dEight = document.querySelector(".dEight");
-const eight = dEight.addEventListener("click", function () {
-  num1 += "8";
-  input.innerHTML = `${num1}`;
+const eight = dEight.addEventListener('click', function () {
+  addDisplayNumber('8');
 });
-const dNine = document.querySelector(".dNine");
-const nine = dNine.addEventListener("click", function () {
-  num1 += "9";
-  input.innerHTML = `${num1}`;
+const nine = dNine.addEventListener('click', function () {
+  addDisplayNumber('9');
 });
 
-const dFour = document.querySelector(".dFour");
-const four = dFour.addEventListener("click", function () {
-  num1 += "4";
-  input.innerHTML = `${num1}`;
+const four = dFour.addEventListener('click', function () {
+  addDisplayNumber('4');
 });
-const dFive = document.querySelector(".dFive");
-const five = dFive.addEventListener("click", function () {
-  num1 += "5";
-  input.innerHTML = `${num1}`;
+const five = dFive.addEventListener('click', function () {
+  addDisplayNumber('5');
 });
-const dSix = document.querySelector(".dSix");
-const six = dSix.addEventListener("click", function () {
-  num1 += "6";
-  input.innerHTML = `${num1}`;
+const six = dSix.addEventListener('click', function () {
+  addDisplayNumber('6');
 });
-const dOne = document.querySelector(".dOne");
-const one = dOne.addEventListener("click", function () {
-  num1 += "1";
-  input.innerHTML = `${num1}`;
+const one = dOne.addEventListener('click', function () {
+  addDisplayNumber('1');
 });
-const dTwo = document.querySelector(".dTwo");
-const two = dTwo.addEventListener("click", function () {
-  num1 += "2";
-  input.innerHTML = `${num1}`;
+const two = dTwo.addEventListener('click', function () {
+  addDisplayNumber('2');
 });
-const dThree = document.querySelector(".dThree");
-const three = dThree.addEventListener("click", function () {
-  num1 += "3";
-  input.innerHTML = `${num1}`;
+const three = dThree.addEventListener('click', function () {
+  addDisplayNumber('3');
 });
-const dMultiply = document.querySelector(".dMultiply");
-const fMultiply = dMultiply.addEventListener("click", function () {
-  operator = "*";
+const fMultiply = dMultiply.addEventListener('click', function () {
+  operator = '*';
   input.innerHTML = `${num1} ${operator}`;
 });
-const dDivide = document.querySelector(".dDivide");
-const fDivide = dDivide.addEventListener("click", function () {
-  operator = "/";
+const fDivide = dDivide.addEventListener('click', function () {
+  operator = '/';
   input.innerHTML = `${num1} ${operator}`;
 });
-const dSubtract = document.querySelector(".dSubtract");
-const fSubtract = dSubtract.addEventListener("click", function () {
-  operator = "-";
+const fSubtract = dSubtract.addEventListener('click', function () {
+  operator = '-';
   input.innerHTML = `${num1} ${operator}`;
 });
-const dAddition = document.querySelector(".dAddition");
-const fAddition = dAddition.addEventListener("click", function () {
-  operator = "+";
+const fAddition = dAddition.addEventListener('click', function () {
+  operator = '+';
   input.innerHTML = `${num1} ${operator}`;
 });
-const dEqual = document.querySelector(".dEqual");
-const dDecimal = document.querySelector(".dDecimal");
-const dZero = document.querySelector(".dZero");
+
+const fEqual = dEqual.addEventListener('click', function () {
+  num1 = parseInt(num1);
+  num2 = parseInt(num2);
+  const result = operate(num1, num2, operator);
+
+  num1 = result;
+  num2 = '';
+  operator = '';
+  input.innerHTML = `${num1}`;
+});
